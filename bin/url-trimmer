@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/url_trimmer"
+
+urls = ARGF.readlines.reject { |line| line.empty? }.map(&:chomp)
+unique_urls = URLTrimmer::Worker.uniq_by_domain(urls)
+print "#{unique_urls.join("\n")}\n"
