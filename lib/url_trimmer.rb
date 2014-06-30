@@ -3,6 +3,8 @@ require "domain_name"
 
 module URLTrimmer
   class Worker
+    URL_REGEXP = %r(\Ahttps?://([^/]+))
+
     def self.uniq_by_domain(urls)
       urls.map! do |url|
         begin
@@ -11,9 +13,9 @@ module URLTrimmer
           url.encode("UTF-8", invalid: :replace, undef: :replace, replace: "").downcase
         end
       end
-      urls.map! { |url| url[%r(\Ahttps?://[^/]+), 0] }
-      urls.compact!
-      urls.uniq! { |url| DomainName(url).domain }
+      urls.select! { |url| url =~ URL_REGEXP }
+      urls.uniq! { |url| DomainName(url[URL_REGEXP, 1]).domain }
+      urls.sort!
       urls
     end
   end
