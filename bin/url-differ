@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/url_trimmer/differ"
+
+file1, file2 = ARGV[0], ARGV[1]
+urls1 = File.readlines(file1).reject { |line| line.empty? }.map(&:chomp)
+urls2 = File.readlines(file2).reject { |line| line.empty? }.map(&:chomp)
+unique_urls = URLTrimmer::Differ.between(urls1, urls2)
+print "#{unique_urls.join("\n")}\n"

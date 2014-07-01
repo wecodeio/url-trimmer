@@ -10,7 +10,17 @@ Install it yourself as:
 
 ## Usage
 
-url-trimmer urls1.txt urls2.txt
+### URL Trimmer
+
+```bash
+url-trimmer urls1.txt urls2.txt .. urlsN.txt > unique-urls.txt
+```
+
+### URL Differ
+
+```bash
+url-differ urls1.txt urls2.txt > urls2-unique.txt
+```
 
 ## Contributing
 
