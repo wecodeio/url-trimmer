@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Cristian Rasch"]
   spec.email         = ["cristian@box.cristianrasch.com.ar"]
   spec.summary       = %q{Reads in plain text files with one URL per line and outputs a list of unique URLs by domain}
-  spec.homepage      = "https://github.com/wecodeio/url_trimmer"
+  spec.homepage      = "https://github.com/wecodeio/url-trimmer"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
